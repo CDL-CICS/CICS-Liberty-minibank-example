@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.reload" value="false" />
+	<constant name="struts.freemarker.templatesCache" value="true" />
+	<constant name="struts.serve.static.browserCache" value="true" />
+		
+		
+	<package name="zhaoxw" extends="struts-default" namespace="/">
+
+	    <action name="toMenuPage" class="com.ibm.cics.savvy.action.MenuPageAction"
+			method="toCatalog">
+			<result name="success">/jsp/catalog.jsp</result>
+		</action>
+
+		<action name="toCreateUser" class="com.ibm.cics.savvy.action.UserManagementAction">
+			<result name="success">/jsp/createUser.jsp</result>
+		</action>
+
+		<action name="doCreateUser" class="com.ibm.cics.savvy.action.UserManagementAction"
+			method="doCreateUser">
+			<result name="success">/jsp/createUser.jsp</result>
+			<result name="error">/jsp/createUser.jsp</result>
+		</action>
+
+		<action name="toQueryUser" class="com.ibm.cics.savvy.action.UserManagementAction"
+			method="toQueryUser">
+			<result name="success">/jsp/queryUser.jsp</result>
+		</action>
+
+		<action name="doQueryUser" class="com.ibm.cics.savvy.action.UserManagementAction"
+			method="doQueryUser">
+			<result name="success">/jsp/queryUser.jsp</result>
+			<result name="error">/jsp/queryUser.jsp</result>
+		</action>
+				
+		<action name="toCreateAccount" class="com.ibm.cics.savvy.action.AccountManagementAction"
+			method="toCreateAccount">
+			<result name="success">/jsp/createAccount.jsp</result>
+		</action>
+
+		<action name="doCreateAccount" class="com.ibm.cics.savvy.action.AccountManagementAction"
+			method="doCreateAccount">
+			<result name="success">/jsp/createAccount.jsp</result>
+			<result name="error">/jsp/createAccount.jsp</result>
+		</action>
+
+		<action name="toQueryAccount" class="com.ibm.cics.savvy.action.AccountManagementAction"
+			method="toQueryAccount">
+			<result name="success">/jsp/queryHistory.jsp</result>
+		</action>
+
+		<action name="doQueryAccount" class="com.ibm.cics.savvy.action.AccountManagementAction"
+			method="doQueryAccount">
+			<result name="success">/jsp/queryHistory.jsp</result>
+			<result name="error">/jsp/queryHistory.jsp</result>
+		</action>
+
+		<action name="toDeposit" class="com.ibm.cics.savvy.action.TransManagementAction"
+			method="toDeposit">
+			<result name="success">/jsp/deposit.jsp</result>
+		</action>
+
+		<action name="doDeposit" class="com.ibm.cics.savvy.action.TransManagementAction"
+			method="doDeposit">
+			<result name="success">/jsp/deposit.jsp</result>
+			<result name="error">/jsp/deposit.jsp</result>
+		</action>
+
+		<action name="toWithDraw" class="com.ibm.cics.savvy.action.TransManagementAction"
+			method="toWithDraw">
+			<result name="success">/jsp/withDraw.jsp</result>
+		</action>
+
+		<action name="doWithDraw" class="com.ibm.cics.savvy.action.TransManagementAction"
+			method="doWithDraw">
+			<result name="success">/jsp/withDraw.jsp</result>
+			<result name="error">/jsp/withDraw.jsp</result>
+		</action>
+
+		<action name="toTransfer" class="com.ibm.cics.savvy.action.TransManagementAction"
+			method="toTransfer">
+			<result name="success">/jsp/transfer.jsp</result>
+		</action>
+
+		<action name="doTransfer" class="com.ibm.cics.savvy.action.TransManagementAction"
+			method="doTransfer">
+			<result name="success">/jsp/transfer.jsp</result>
+			<result name="error">/jsp/transfer.jsp</result>
+		</action>
+				
+	</package>
+</struts>
