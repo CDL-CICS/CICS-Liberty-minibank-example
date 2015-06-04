@@ -1,1 +1,0 @@
-# CICS-Liberty-minibank-example
