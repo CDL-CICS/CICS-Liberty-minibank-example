@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<manifest xmlns="http://www.ibm.com/xmlns/prod/cics/bundle" id="com.ibm.cics.minibank.WOR.system.bundle" bundleMajorVer="1" bundleMinorVer="0" bundleMicroVer="0" bundleVersion="1" bundleRelease="0" build="GM04-201405211806">
+    <meta_directives>
+        <timestamp>2014-09-05T15:08:50.742+08:00</timestamp>
+    </meta_directives>
+    <define name="LIBTEST" type="http://www.ibm.com/xmlns/prod/cics/bundle/JVMSERVER" path="LIBTEST.jvmserver"/>
+    <define name="DACW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="DACW.transaction"/>
+    <define name="DPTW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="DPTW.transaction"/>
+    <define name="DUSW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="DUSW.transaction"/>
+    <define name="MENU" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="MENU.transaction"/>
+    <define name="QACW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QACW.transaction"/>
+    <define name="QUSW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QUSW.transaction"/>
+    <define name="TSFW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="TSFW.transaction"/>
+    <define name="WDRW" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="WDRW.transaction"/>
+    <define name="MCRACT" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MCRACT.urimap"/>
+    <define name="MCRUSR" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MCRUSR.urimap"/>
+    <define name="MDEPOSIT" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MDEPOSIT.urimap"/>
+    <define name="MMENU" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MMENU.urimap"/>
+    <define name="MQACT" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MQACT.urimap"/>
+    <define name="MQUSR" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MQUSR.urimap"/>
+    <define name="MTRSFER" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MTRSFER.urimap"/>
+    <define name="MWTDRAW" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="MWTDRAW.urimap"/>
+    <define name="TCRACT" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TCRACT.urimap"/>
+    <define name="TCRUSR" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TCRUSR.urimap"/>
+    <define name="TDEPOSIT" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TDEPOSIT.urimap"/>
+    <define name="TMENU" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TMENU.urimap"/>
+    <define name="TQACT" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TQACT.urimap"/>
+    <define name="TQUSR" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TQUSR.urimap"/>
+    <define name="TTRSFER" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TTRSFER.urimap"/>
+    <define name="TWTDRAW" type="http://www.ibm.com/xmlns/prod/cics/bundle/URIMAP" path="TWTDRAW.urimap"/>
+</manifest>

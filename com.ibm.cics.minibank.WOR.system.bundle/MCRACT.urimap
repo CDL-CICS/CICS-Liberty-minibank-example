@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="MCRACT" path="/CICSSavvyWeb01/doCreateAccount.action" port="NO" transaction="DACW" usage="JVMSERVER"/>
