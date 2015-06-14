@@ -3,7 +3,7 @@ package com.ibm.cics.minibank.entity;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.ibm.cics.minibank.util.IConstants;
+import com.ibm.cics.minibank.common.util.IConstants;
 
 /**
  * Class for the account info.

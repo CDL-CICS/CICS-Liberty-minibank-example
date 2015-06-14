@@ -17,10 +17,10 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
+import com.ibm.cics.minibank.util.WORDBUtil;
+import com.ibm.cics.minibank.common.util.IConstants;
+import com.ibm.cics.minibank.util.WORPropertiesUtil;
 import com.ibm.cics.minibank.entity.User;
-import com.ibm.cics.minibank.util.DBUtil;
-import com.ibm.cics.minibank.util.IConstants;
-import com.ibm.cics.minibank.util.PropertiesUtil;
 import com.ibm.cics.minibank.util.TransUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -191,7 +191,7 @@ public class UserManagementAction extends ActionSupport {
 			
 			//close DB2 connection
 
-			DBUtil.getDBUtilInstance().closeDB2Connection();
+			WORDBUtil.getDBUtilInstance().closeDB2Connection();
 			
 
 		} else {
@@ -226,7 +226,7 @@ public class UserManagementAction extends ActionSupport {
 
 
 		//open connection to DB2
-		DBUtil.getDBUtilInstance().initDB2Connection(4); // get type 4 db2 connection
+		WORDBUtil.getDBUtilInstance().initDB2Connection(4); // get type 4 db2 connection
 		
 		try {
 			tran.begin();
@@ -248,7 +248,7 @@ public class UserManagementAction extends ActionSupport {
 				+ "'" + txTime + "'"
 				+ ")";
 		// update the database table
-		int numUpd = DBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		
 		// invokde the delegator method in the TransUtil object
 		user = TransUtil.getTranUtil().queryUser(containerData);
@@ -277,7 +277,7 @@ public class UserManagementAction extends ActionSupport {
 		}
 		
 		//close DB2 connection
-		DBUtil.getDBUtilInstance().closeDB2Connection();
+		WORDBUtil.getDBUtilInstance().closeDB2Connection();
 		
 		return SUCCESS;
 	}

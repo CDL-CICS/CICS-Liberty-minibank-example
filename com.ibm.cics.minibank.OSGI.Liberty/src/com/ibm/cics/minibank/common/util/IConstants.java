@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ibm.cics.minibank.util;
+package com.ibm.cics.minibank.common.util;
 
 
 /**

@@ -1,6 +1,6 @@
 package com.ibm.cics.minibank.entity;
 
-import com.ibm.cics.minibank.util.IConstants;
+import com.ibm.cics.minibank.common.util.IConstants;
 
 /**
  * Class for the transaction history records.

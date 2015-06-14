@@ -16,8 +16,8 @@ Bundle-ClassPath: WEB-INF/classes,
  WEB-INF/lib/struts2-core-2.3.4.1.jar,
  WEB-INF/lib/xwork-core-2.3.4.1.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: com.ibm.cics.minibank.entity,
- com.ibm.cics.minibank.trans,
+Import-Package: com.ibm.cics.minibank.common.util,
+ com.ibm.cics.minibank.entity,
  com.ibm.cics.server,
  javax.el;version="2.0",
  javax.naming,

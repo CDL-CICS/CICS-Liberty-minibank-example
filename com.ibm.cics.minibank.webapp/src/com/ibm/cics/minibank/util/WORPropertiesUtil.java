@@ -2,15 +2,15 @@ package com.ibm.cics.minibank.util;
 
 import java.util.ResourceBundle;
 
-import com.ibm.cics.minibank.util.PropertiesUtil;
+import com.ibm.cics.minibank.util.WORPropertiesUtil;
 
 /**
  * Utility class to read the properties 
  */
-public class PropertiesUtil {
-	private static PropertiesUtil propertyUtil = null;
+public class WORPropertiesUtil {
+	private static WORPropertiesUtil propertyUtil = null;
 	private ResourceBundle propertyBundle = ResourceBundle
-			.getBundle("properties/minibankWeb");
+			.getBundle("properties/MinibankWOR");
 
 	private boolean linkToAOR = false;
 	private boolean linkToLocal = false;
@@ -22,9 +22,9 @@ public class PropertiesUtil {
 	private String progWithdraw = "";
 	private String progTransfer = "";	
 	
-	public static PropertiesUtil getPropertiesUtil() {
+	public static WORPropertiesUtil getPropertiesUtil() {
 		if ( propertyUtil == null ) {
-			propertyUtil = new PropertiesUtil();
+			propertyUtil = new WORPropertiesUtil();
 		}
 		return propertyUtil;
 	}
@@ -65,7 +65,7 @@ public class PropertiesUtil {
 		return progTransfer;
 	}
 
-	private PropertiesUtil() {
+	private WORPropertiesUtil() {
 		// TODO Auto-generated constructor stub
 		linkToAOR = (new Boolean(getProperty("LinkToAOR"))).booleanValue();
 		linkToLocal = (new Boolean(getProperty("LinkToLocal"))).booleanValue();

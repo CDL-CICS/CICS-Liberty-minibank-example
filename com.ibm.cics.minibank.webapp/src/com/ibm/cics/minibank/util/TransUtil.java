@@ -5,12 +5,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.ibm.cics.minibank.common.util.IConstants;
+import com.ibm.cics.minibank.util.WORPropertiesUtil;
 import com.ibm.cics.minibank.entity.Account;
 import com.ibm.cics.minibank.entity.TransHistory;
 import com.ibm.cics.minibank.entity.User;
-import com.ibm.cics.minibank.trans.QueryAccount;
-import com.ibm.cics.minibank.util.IConstants;
-import com.ibm.cics.minibank.util.PropertiesUtil;
 import com.ibm.cics.server.CCSIDErrorException;
 import com.ibm.cics.server.Channel;
 import com.ibm.cics.server.ChannelErrorException;
@@ -47,8 +46,8 @@ public class TransUtil {
 
 	private TransUtil() {
 		// TODO Auto-generated constructor stub
-		linkToAOR = PropertiesUtil.getPropertiesUtil().isLinkToAOR();
-		linkToLocal = PropertiesUtil.getPropertiesUtil().isLinkToLocal();
+		linkToAOR = WORPropertiesUtil.getPropertiesUtil().isLinkToAOR();
+		linkToLocal = WORPropertiesUtil.getPropertiesUtil().isLinkToLocal();
 	}
 	
 	/**
@@ -59,7 +58,7 @@ public class TransUtil {
 		String[] info = new String[2];
 		
 		if ( linkToAOR ) {
-			Channel channel = callTransaction(PropertiesUtil.getPropertiesUtil().getProgCreateUser(), containerData);
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgCreateUser(), containerData);
 			// get the transaction status. 1: success; 0: fail
 			info[0] = getContainerData(channel, IConstants.TRAN_CODE);
 			System.out.println("get tran_code after link" + info[0]);
@@ -86,7 +85,7 @@ public class TransUtil {
 		Set<Account> accountSet = new HashSet<Account>();
 
 		if ( linkToAOR ) {
-			Channel channel = callTransaction(PropertiesUtil.getPropertiesUtil().getProgQueryUser(), containerData);
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgQueryUser(), containerData);
 			Container container = null;
 			String acctInfo = null;
 			
@@ -134,7 +133,7 @@ public class TransUtil {
 		String[] info = new String[2];
 		
 		if ( linkToAOR ) {
-			Channel channel = callTransaction(PropertiesUtil.getPropertiesUtil().getProgCreateAcct(), containerData);
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgCreateAcct(), containerData);
 			// get the transaction status. 1: success; 0: fail
 			info[0] = getContainerData(channel, IConstants.TRAN_CODE);
 			// get the transaction detail message
@@ -157,21 +156,10 @@ public class TransUtil {
 	public Account queryAccount(HashMap<String, String> containerData) {
 		String acctInfo = "";
 		Set<TransHistory> transHistories = new HashSet<TransHistory>();	
-		
-		Account returnedAccount ;
 
 		if ( linkToLocal) {
 			System.out.println("link AOR");
-			QueryAccount a = new QueryAccount(); 
-			
-			returnedAccount = a.transactionLogic(containerData.get(IConstants.ACCT_NUMBER));
-			
-
-		} 
-		else if (linkToAOR)
-		{
-			System.out.println("link AOR");
-			Channel channel = callTransaction(PropertiesUtil.getPropertiesUtil().getProgQueryAcct(), containerData);
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgQueryAcct(), containerData);
 			Container container = null;
 			String tranInfo = ""; 
 
@@ -194,8 +182,33 @@ public class TransUtil {
 					}
 				}
 			}
-			returnedAccount = new Account(acctInfo, transHistories);
-			
+		} 
+		else if (linkToAOR)
+		{
+			System.out.println("link AOR");
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgQueryAcct(), containerData);
+			Container container = null;
+			String tranInfo = ""; 
+
+			// iterate all the return containers to find out the account info and related transaction records
+			Iterator<Container> it = channel.containerIterator();
+			while ( it.hasNext() ) {
+				container = it.next();
+				if ( container != null ) {
+					if ( container.getName().startsWith(IConstants.ACCT_INFO) ) {
+						// this is account info
+						System.out.println(container.getName());
+						acctInfo = getContainerData(channel, container.getName());
+						
+					} else if ( container.getName().startsWith(IConstants.HIST_LIST) ) {
+						// this is a container for a transaction history record
+						tranInfo = getContainerData(channel, container.getName());
+						// create a transaction history record object and put it into set
+						TransHistory tranRecord = new TransHistory(tranInfo);
+						transHistories.add(tranRecord);
+					}
+				}
+			}
 		}
 		else
 		{
@@ -208,11 +221,10 @@ public class TransUtil {
 				transHistories.add(tranRecord);
 			}
 			
-			returnedAccount = new Account(acctInfo, transHistories);
-			
 		}
 		
 		// use the account info and transaction history record set to create Account object, and return
+		Account returnedAccount = new Account(acctInfo, transHistories);
 		return returnedAccount;
 	}
 	
@@ -224,7 +236,7 @@ public class TransUtil {
 		String[] info = new String[2];
 
 		if ( linkToAOR ) {
-			Channel channel = callTransaction(PropertiesUtil.getPropertiesUtil().getProgDeposit(), containerData);
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgDeposit(), containerData);
 			// get the transaction status. 1: success; 0: fail
 			info[0] = getContainerData(channel, IConstants.TRAN_CODE);
 			// get the transaction detail message
@@ -250,7 +262,7 @@ public class TransUtil {
 		String[] info = new String[2];
 
 		if ( linkToAOR ) {
-			Channel channel = callTransaction(PropertiesUtil.getPropertiesUtil().getProgWithdraw(), containerData);
+			Channel channel = callTransaction(WORPropertiesUtil.getPropertiesUtil().getProgWithdraw(), containerData);
 			// get the transaction status. 1: success; 0: fail
 			info[0] = getContainerData(channel, IConstants.TRAN_CODE);
 			// get the transaction detail message
@@ -276,7 +288,7 @@ public class TransUtil {
 		
 		if ( linkToAOR ) {
 			Program bkTran = new Program();
-			bkTran.setName(PropertiesUtil.getPropertiesUtil().getProgTransfer());
+			bkTran.setName(WORPropertiesUtil.getPropertiesUtil().getProgTransfer());
 			try {
 				byte[] data = commarea.createCommarea();
 				// link to the program on AOR, 

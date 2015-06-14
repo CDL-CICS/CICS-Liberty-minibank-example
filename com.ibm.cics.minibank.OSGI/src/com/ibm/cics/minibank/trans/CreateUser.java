@@ -1,9 +1,9 @@
 package com.ibm.cics.minibank.trans;
 
-import com.ibm.cics.minibank.util.ContainerUtil;
-import com.ibm.cics.minibank.util.DBUtil;
-import com.ibm.cics.minibank.util.IConstants;
-import com.ibm.cics.minibank.util.PropertiesUtil;
+import com.ibm.cics.minibank.common.util.ContainerUtil;
+import com.ibm.cics.minibank.AOR.util.AORDBUtil;
+import com.ibm.cics.minibank.common.util.IConstants;
+import com.ibm.cics.minibank.AOR.util.AORPropertiesUtil;
 import com.ibm.cics.server.Channel;
 import com.ibm.cics.server.CommAreaHolder;
 
@@ -29,12 +29,12 @@ public class CreateUser extends Transaction implements ITransaction {
 		String address = ContainerUtil.getContainerData(channel, IConstants.CUST_ADDR);
 
 		// construct the SQL command
-		String sqlCmd = "INSERT INTO " + PropertiesUtil.getPropertiesUtil().getTableCustomer() + "("
-				+ PropertiesUtil.getPropertiesUtil().getFieldCustID() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldCustName() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldCustGender() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldCustAge() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldCustAddress()
+		String sqlCmd = "INSERT INTO " + AORPropertiesUtil.getPropertiesUtil().getTableCustomer() + "("
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldCustID() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldCustName() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldCustGender() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldCustAge() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldCustAddress()
 				+ ") VALUES("
 				+ "'" + userId + "', "
 				+ "'" + name + "', "
@@ -43,7 +43,7 @@ public class CreateUser extends Transaction implements ITransaction {
 				+ "'" + address + "'"
 				+ ")";
 		// update the database table
-		int numUpd = DBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		int numUpd = AORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		// put the transaction status to return container
 		String tranCode = (new Integer(numUpd)).toString();
 		ContainerUtil.putContainerData(channel, IConstants.TRAN_CODE, tranCode);

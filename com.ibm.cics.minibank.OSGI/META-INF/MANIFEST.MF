@@ -10,5 +10,6 @@ CICS-MainClass: com.ibm.cics.minibank.trans.CreateUser,
                 com.ibm.cics.minibank.trans.QueryAccount,
                 com.ibm.cics.minibank.trans.Deposit,
                 com.ibm.cics.minibank.trans.Withdraw
-Import-Package:  com.ibm.cics.server;version="[1.0.0,2.0.0)",
-                com.ibm.db2.jcc;resolution:=optional
+Import-Package: com.ibm.cics.minibank.common.util,
+ com.ibm.cics.server;version="[1.0.0,2.0.0)",
+ com.ibm.db2.jcc;resolution:=optional

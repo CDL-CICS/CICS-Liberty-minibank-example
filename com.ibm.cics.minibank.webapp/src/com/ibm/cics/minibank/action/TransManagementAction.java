@@ -17,8 +17,8 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
-import com.ibm.cics.minibank.util.DBUtil;
-import com.ibm.cics.minibank.util.IConstants;
+import com.ibm.cics.minibank.util.WORDBUtil;
+import com.ibm.cics.minibank.common.util.IConstants;
 import com.ibm.cics.minibank.util.TransUtil;
 import com.ibm.cics.minibank.util.TransferCommarea;
 import com.opensymphony.xwork2.ActionSupport;
@@ -174,14 +174,14 @@ public class TransManagementAction extends ActionSupport {
 
 		//without JTA, we have to commit explict
 		try {
-			DBUtil.getDBUtilInstance().commitOrRollback(true);
+			WORDBUtil.getDBUtilInstance().commitOrRollback(true);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} //true means commit
 		
 		//close DB2 connection
-		DBUtil.getDBUtilInstance().closeDB2Connection();
+		WORDBUtil.getDBUtilInstance().closeDB2Connection();
 		
 		return SUCCESS;
 	}
@@ -214,7 +214,7 @@ public class TransManagementAction extends ActionSupport {
 	{
 		
 		//open connection to DB2
-		DBUtil.getDBUtilInstance().initDB2Connection(2); // get type 2 connection
+		WORDBUtil.getDBUtilInstance().initDB2Connection(2); // get type 2 connection
 		
 		// write the transaction history record
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -225,7 +225,7 @@ public class TransManagementAction extends ActionSupport {
 				+ "'" + txTime + "'"
 				+ ")";
 		// update the database table
-		int numUpd = DBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		
 	}
 	

@@ -12,4 +12,5 @@
     <define name="WITHDRAW" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="WITHDRAW.program"/>
     <define name="MINIBANK" type="http://www.ibm.com/xmlns/prod/cics/bundle/LIBRARY" path="MINIBANK.library"/>
     <define name="com.ibm.cics.minibank.AOR.OSGI" type="http://www.ibm.com/xmlns/prod/cics/bundle/OSGIBUNDLE" path="com.ibm.cics.minibank.AOR.OSGI.osgibundle"/>
+    <define name="com.ibm.cics.minibank.common.OSGI" type="http://www.ibm.com/xmlns/prod/cics/bundle/OSGIBUNDLE" path="com.ibm.cics.minibank.common.OSGI.osgibundle"/>
 </manifest>

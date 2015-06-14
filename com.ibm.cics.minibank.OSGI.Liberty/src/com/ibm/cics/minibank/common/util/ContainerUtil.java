@@ -1,4 +1,4 @@
-package com.ibm.cics.minibank.util;
+package com.ibm.cics.minibank.common.util;
 
 import com.ibm.cics.server.CCSIDErrorException;
 import com.ibm.cics.server.Channel;

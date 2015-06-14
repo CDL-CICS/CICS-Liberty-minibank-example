@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import com.ibm.cics.minibank.common.util.IConstants;
 import com.ibm.cics.minibank.entity.Account;
-import com.ibm.cics.minibank.util.IConstants;
 import com.ibm.cics.minibank.util.TransUtil;
 import com.opensymphony.xwork2.ActionSupport;
 

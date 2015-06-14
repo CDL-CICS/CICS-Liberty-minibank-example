@@ -1,9 +1,9 @@
 package com.ibm.cics.minibank.trans;
 
-import com.ibm.cics.minibank.util.ContainerUtil;
-import com.ibm.cics.minibank.util.DBUtil;
-import com.ibm.cics.minibank.util.IConstants;
-import com.ibm.cics.minibank.util.PropertiesUtil;
+import com.ibm.cics.minibank.common.util.ContainerUtil;
+import com.ibm.cics.minibank.AOR.util.AORDBUtil;
+import com.ibm.cics.minibank.common.util.IConstants;
+import com.ibm.cics.minibank.AOR.util.AORPropertiesUtil;
 import com.ibm.cics.server.Channel;
 import com.ibm.cics.server.CommAreaHolder;
 
@@ -31,11 +31,11 @@ public class CreateAccount extends Transaction implements ITransaction {
 		String changeTime = ContainerUtil.getContainerData(channel, IConstants.ACCT_CHANGE);
 		
 		// construct SQL command
-		String sqlCmd = "INSERT INTO " + PropertiesUtil.getPropertiesUtil().getTableAccount() + "("
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctNummber() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctCustID() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctBalance() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctLastChange()
+		String sqlCmd = "INSERT INTO " + AORPropertiesUtil.getPropertiesUtil().getTableAccount() + "("
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctNummber() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctCustID() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctBalance() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctLastChange()
 				+ ") VALUES("
 				+ "'" + acctNum + "', "
 				+ "'" + acctCustID + "', "
@@ -44,7 +44,7 @@ public class CreateAccount extends Transaction implements ITransaction {
 				+ "'" + changeTime + "'"
 				+ ")";
 		// update the database table
-		int numUpd = DBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		int numUpd = AORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		// put the transaction status to container 
 		ContainerUtil.putContainerData(channel, IConstants.TRAN_CODE, (new Integer(numUpd)).toString());
 		// put the transaction detail message to container

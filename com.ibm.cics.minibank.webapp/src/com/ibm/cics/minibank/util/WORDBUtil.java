@@ -11,7 +11,7 @@ import java.sql.*;
 import javax.naming.*;
 import javax.sql.*;
 
-import com.ibm.cics.minibank.util.DBUtil;
+import com.ibm.cics.minibank.util.WORDBUtil;
 import com.ibm.cics.server.Task;
 
 /**
@@ -21,23 +21,23 @@ import com.ibm.cics.server.Task;
  *  - execute the SQL to query tables
  *  - execute the SQL to update tables
  */
-public class DBUtil {
-	private static DBUtil instance = null;
+public class WORDBUtil {
+	private static WORDBUtil instance = null;
 	protected Connection con = null;
 	protected boolean connectToDB2 = true;
 
 	/**
 	 * Get singleton instance of DBUtil
 	 */
-	public static DBUtil getDBUtilInstance() {
+	public static WORDBUtil getDBUtilInstance() {
 		if ( instance == null ) {
-			instance = new DBUtil();
+			instance = new WORDBUtil();
 		}
 		
 		return instance;
 	}
 	
-	protected DBUtil() {
+	protected WORDBUtil() {
 		super();
 	}
 	

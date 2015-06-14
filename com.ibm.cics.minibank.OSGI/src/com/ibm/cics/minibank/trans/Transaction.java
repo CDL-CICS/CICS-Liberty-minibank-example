@@ -5,9 +5,9 @@ package com.ibm.cics.minibank.trans;
 
 import java.util.ArrayList;
 
-import com.ibm.cics.minibank.util.DBUtil;
-import com.ibm.cics.minibank.util.IConstants;
-import com.ibm.cics.minibank.util.PropertiesUtil;
+import com.ibm.cics.minibank.AOR.util.AORDBUtil;
+import com.ibm.cics.minibank.common.util.IConstants;
+import com.ibm.cics.minibank.AOR.util.AORPropertiesUtil;
 import com.ibm.cics.server.Channel;
 import com.ibm.cics.server.Task;
 
@@ -34,13 +34,13 @@ public abstract class Transaction implements ITransaction {
 		String balance = "0";
 		
 		String sqlCmd = "SELECT "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctBalance()
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctBalance()
 				+ " FROM "
-				+ PropertiesUtil.getPropertiesUtil().getTableAccount()
+				+ AORPropertiesUtil.getPropertiesUtil().getTableAccount()
 				+ " WHERE "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctNummber()
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctNummber()
 				+ "='" + acctNum + "'";
-		ArrayList<String> queryList = DBUtil.getDBUtilInstance().execQuerySQL(sqlCmd);
+		ArrayList<String> queryList = AORDBUtil.getDBUtilInstance().execQuerySQL(sqlCmd);
 		if ( queryList.size() > 0 ) {
 			String record = queryList.get(0);
 			if ( record.contains(IConstants.DATA_FIELD_SPLITTER) ) {
@@ -61,13 +61,13 @@ public abstract class Transaction implements ITransaction {
 	protected int setAccountBalance(String acctNum, double newBalance) {
 
 		String sqlCmd = "UPDATE "
-				+ PropertiesUtil.getPropertiesUtil().getTableAccount()
+				+ AORPropertiesUtil.getPropertiesUtil().getTableAccount()
 				+ " SET "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctBalance()
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctBalance()
 				+ "='" + newBalance + "' WHERE "
-				+ PropertiesUtil.getPropertiesUtil().getFieldAcctNummber()
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldAcctNummber()
 				+ "='" + acctNum + "'";
-		int numUpd = DBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		int numUpd = AORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		return numUpd;
 	}
 
@@ -76,18 +76,18 @@ public abstract class Transaction implements ITransaction {
 	 */
 	protected int addTranHistRecord(String tranName, String acctNum, float amount, String txTime) {
 		int numUpd = 0;
-		String sqlCmd = "INSERT INTO " + PropertiesUtil.getPropertiesUtil().getTableTranHist() + "("
-				+ PropertiesUtil.getPropertiesUtil().getFieldHistTranName() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldHistAcctNum() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldHistAmount() + ", "
-				+ PropertiesUtil.getPropertiesUtil().getFieldHistTime()
+		String sqlCmd = "INSERT INTO " + AORPropertiesUtil.getPropertiesUtil().getTableTranHist() + "("
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldHistTranName() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldHistAcctNum() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldHistAmount() + ", "
+				+ AORPropertiesUtil.getPropertiesUtil().getFieldHistTime()
 				+ ") VALUES("
 				+ "'" + tranName + "', "
 				+ "'" + acctNum + "', "
 				+ amount + ", "
 				+ "'" + txTime + "'"
 				+ ")";
-		numUpd = DBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		numUpd = AORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		return numUpd;
 	}
 

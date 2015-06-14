@@ -1,4 +1,4 @@
-package com.ibm.cics.minibank.util;
+package com.ibm.cics.minibank.AOR.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.ibm.cics.minibank.common.util.IConstants;
 import com.ibm.cics.server.Task;
 
 /**
@@ -16,26 +17,26 @@ import com.ibm.cics.server.Task;
  *  - execute the SQL to query tables
  *  - execute the SQL to update tables
  */
-public class DBUtil {
-	private static DBUtil instance = null;
+public class AORDBUtil {
+	private static AORDBUtil instance = null;
 	protected Connection con = null;
 	protected boolean connectToDB2 = true;
 
 	/**
 	 * Get singleton instance of DBUtil
 	 */
-	public static DBUtil getDBUtilInstance() {
+	public static AORDBUtil getDBUtilInstance() {
 		if ( instance == null ) {
-			instance = new DBUtil();
+			instance = new AORDBUtil();
 		}
 		
 		return instance;
 	}
 	
-	protected DBUtil() {
+	protected AORDBUtil() {
 		super();
 		// get the flag from property file, if connect to DB2
-		connectToDB2 = PropertiesUtil.getPropertiesUtil().isConnectToDB2();
+		connectToDB2 = AORPropertiesUtil.getPropertiesUtil().isConnectToDB2();
 	}
 	
 	/**

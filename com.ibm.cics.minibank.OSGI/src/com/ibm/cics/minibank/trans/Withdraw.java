@@ -3,8 +3,8 @@ package com.ibm.cics.minibank.trans;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.ibm.cics.minibank.util.ContainerUtil;
-import com.ibm.cics.minibank.util.IConstants;
+import com.ibm.cics.minibank.common.util.ContainerUtil;
+import com.ibm.cics.minibank.common.util.IConstants;
 import com.ibm.cics.server.Channel;
 import com.ibm.cics.server.CommAreaHolder;
 

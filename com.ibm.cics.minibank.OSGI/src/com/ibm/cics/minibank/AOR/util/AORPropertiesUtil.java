@@ -1,14 +1,14 @@
-package com.ibm.cics.minibank.util;
+package com.ibm.cics.minibank.AOR.util;
 
 import java.util.ResourceBundle;
 
 /**
  * Utility class to read the properties 
  */
-public class PropertiesUtil {
-	private static PropertiesUtil propertyUtil = null;
+public class AORPropertiesUtil {
+	private static AORPropertiesUtil propertyUtil = null;
 	private ResourceBundle propertyBundle = ResourceBundle
-			.getBundle("properties/SavvyJava");
+			.getBundle("properties/MinibankAOR");
 
 	// If connection to DB2 available
 	private boolean connectToDB2 = false;
@@ -33,9 +33,9 @@ public class PropertiesUtil {
 	private String fieldHistAmount = "";
 	private String fieldHistTime = "";
 	
-	public static PropertiesUtil getPropertiesUtil() {
+	public static AORPropertiesUtil getPropertiesUtil() {
 		if ( propertyUtil == null ) {
-			propertyUtil = new PropertiesUtil();
+			propertyUtil = new AORPropertiesUtil();
 		}
 		return propertyUtil;
 	}
@@ -108,7 +108,7 @@ public class PropertiesUtil {
 		return fieldHistTime;
 	}
 
-	private PropertiesUtil() {
+	private AORPropertiesUtil() {
 		// If connection to DB2 available
 		connectToDB2 = (new Boolean(getProperty("ConnectToDB2"))).booleanValue();
 		// DB2 table names 
