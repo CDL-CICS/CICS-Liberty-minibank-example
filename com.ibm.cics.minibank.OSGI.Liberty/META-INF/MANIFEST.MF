@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CICSminibank
-Bundle-SymbolicName: com.ibm.cics.minibank.OSGI.Liberty
+Bundle-SymbolicName: com.ibm.cics.minibank.common.OSGI
 Bundle-Version: 1.0.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 CICS-MainClass: com.ibm.cics.minibank.trans.CreateUser,

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.ibm.storm.minibank.webapp
-Bundle-SymbolicName: com.ibm.cics.minibank.webapp
+Bundle-Name: com.ibm.storm.minibank.WOR.webapp
+Bundle-SymbolicName: com.ibm.cics.minibank.WOR.webapp
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: WEB-INF/classes,
  WEB-INF/lib/commons-fileupload-1.2.2.jar,
@@ -44,5 +44,5 @@ Import-Package: com.ibm.cics.minibank.entity,
  org.w3c.dom,
  org.xml.sax,
  org.xml.sax.helpers
-Web-ContextPath: /SavvyWebApp
+Web-ContextPath: /Minibank
 

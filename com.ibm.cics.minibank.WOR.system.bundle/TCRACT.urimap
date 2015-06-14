@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="TCRACT" path="/CICSSavvyWeb01/toCreateAccount.action" port="NO" transaction="DACW" usage="JVMSERVER"/>
+<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="TCRACT" path="/Minibank/toCreateAccount.action" port="NO" transaction="DACW" usage="JVMSERVER"/>

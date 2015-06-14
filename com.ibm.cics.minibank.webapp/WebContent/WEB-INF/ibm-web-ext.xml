@@ -6,7 +6,7 @@
 	version="1.1">
 
 	<reload-interval value="3"/>
-	<context-root uri="com.ibm.cics.minibank.webapp" />
+	<context-root uri="com.ibm.cics.minibank.WOR.webapp" />
 	<enable-directory-browsing value="false"/>
 	<enable-file-serving value="true"/>
 	<enable-reloading value="true"/>

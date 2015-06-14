@@ -3,7 +3,6 @@
     <meta_directives>
         <timestamp>2014-08-10T18:28:16.028+08:00</timestamp>
     </meta_directives>
-    <define name="com.ibm.cics.minibank.OSGI" type="http://www.ibm.com/xmlns/prod/cics/bundle/OSGIBUNDLE" path="com.ibm.cics.minibank.OSGI.osgibundle"/>
     <define name="CRETACCT" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="CRETACCT.program"/>
     <define name="CRETUSER" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="CRETUSER.program"/>
     <define name="DEPOSIT" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="DEPOSIT.program"/>
@@ -12,4 +11,5 @@
     <define name="TRANSFER" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="TRANSFER.program"/>
     <define name="WITHDRAW" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="WITHDRAW.program"/>
     <define name="MINIBANK" type="http://www.ibm.com/xmlns/prod/cics/bundle/LIBRARY" path="MINIBANK.library"/>
+    <define name="com.ibm.cics.minibank.AOR.OSGI" type="http://www.ibm.com/xmlns/prod/cics/bundle/OSGIBUNDLE" path="com.ibm.cics.minibank.AOR.OSGI.osgibundle"/>
 </manifest>

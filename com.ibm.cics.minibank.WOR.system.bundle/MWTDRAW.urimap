@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="MWTDRAW" path="/CICSSavvyWeb01/doWithDraw.action" port="NO" transaction="WDRW" usage="JVMSERVER"/>
+<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="MWTDRAW" path="/Minibank/doWithDraw.action" port="NO" transaction="WDRW" usage="JVMSERVER"/>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>CICS Savvy</title>
+<title>CICS Minibank</title>
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>
@@ -15,11 +15,11 @@
 		<br />
 		<h2>
 
-			<span>CICS Savvy</span>
+			<span>CICS Minibank</span>
 		</h2>
 
 
-		welcome to CICS Savvy<br /> <br /> <br /> <font color="red"
+		welcome to CICS Minibank<br /> <br /> <br /> <font color="red"
 			size="5"><s:actionmessage /> <s:if test="hasErrors()">empty transfer error. Reason:${actionErrors[0]}
 			</s:if> </font>
 

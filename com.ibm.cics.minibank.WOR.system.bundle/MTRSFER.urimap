@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="MTRSFER" path="/CICSSavvyWeb01/doTransfer.action" port="NO" transaction="TSFW" usage="JVMSERVER"/>
+<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="MTRSFER" path="/Minibank/doTransfer.action" port="NO" transaction="TSFW" usage="JVMSERVER"/>

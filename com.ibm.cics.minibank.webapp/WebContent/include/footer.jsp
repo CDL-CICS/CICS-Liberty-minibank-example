@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 <div id="footer">
-	<a href="#" class="alink" target="_blank">IBM 2013 AP CICS Savvy</a><br />
+	<a href="#" class="alink" target="_blank">IBM 2015 CICS Minibank</a><br />
 		 <strong
 		class="color_green">copy rights&copy; IBM reserved</strong>
 </div>

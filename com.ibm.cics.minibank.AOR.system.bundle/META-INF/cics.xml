@@ -3,7 +3,7 @@
     <meta_directives>
         <timestamp>2014-09-05T15:44:02.646+08:00</timestamp>
     </meta_directives>
-    <define name="OSGITEST" type="http://www.ibm.com/xmlns/prod/cics/bundle/JVMSERVER" path="OSGITEST.jvmserver"/>
+    <define name="OSGIJVM" type="http://www.ibm.com/xmlns/prod/cics/bundle/JVMSERVER" path="OSGIJVM.jvmserver"/>
     <define name="CACJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="CACJ.transaction"/>
     <define name="DPTJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="DPTJ.transaction"/>
     <define name="QACJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QACJ.transaction"/>

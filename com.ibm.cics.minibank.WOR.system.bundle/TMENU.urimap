@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="TMENU" path="/CICSSavvyWeb01/toMenuPage.action" port="NO" transaction="MENU" usage="JVMSERVER"/>
+<?xml version="1.0" encoding="UTF-8"?><cicsdefinitionurimap xmlns="http://www.ibm.com/xmlns/prod/CICS/smw2int" host="*" name="TMENU" path="/Minibank/toMenuPage.action" port="NO" transaction="MENU" usage="JVMSERVER"/>
