@@ -43,7 +43,7 @@ JAVA_HOME=/usr/lpp/java/J7.0_64
 # Set the current working directory. If you do not specify this option, 
 # the current working directory defaults to /tmp.
 # WORK_DIR=/u/cntest7/liberty/workdir
-WORK_DIR=/u/cntest7/liberty/workdir
+WORK_DIR=/u/yanfeng/zosConnect/workdir
 #
 #**********************************************************************
 #
@@ -102,20 +102,20 @@ WLP_INSTALL_DIR=&USSHOME;/wlp
 # specific host name. The server will only respect the value of this 
 # property when 'com.ibm.cics.jvmserver.wlp.autoconfigure=true'.
 #-Dcom.ibm.cics.jvmserver.wlp.server.host=winmvs2d.hursley.ibm.com
--Dcom.ibm.cics.jvmserver.wlp.server.host=winmvs2d.hursley.ibm.com
+-Dcom.ibm.cics.jvmserver.wlp.server.host=*
 #
 # Instruct CICS to set the port used for HTTP requests. The default 
 # value if omitted is 9080. Set this to a free port number on your z/OS
 # system. WLP does not use CICS TCPIPServices. The server will only be 
 # updated with the value of this property when 
 # com.ibm.cics.jvmserver.wlp.autoconfigure=true.
--Dcom.ibm.cics.jvmserver.wlp.server.http.port=30097
+-Dcom.ibm.cics.jvmserver.wlp.server.http.port=6302
 #
 # Instruct CICS to set the port used for HTTPS requests. The default 
 # value if omitted is 9443. Set this to a free port number on your z/OS
 # system. The server will only be updated with the value of this property
 # when com.ibm.cics.jvmserver.wlp.autoconfigure=true.
--Dcom.ibm.cics.jvmserver.wlp.server.https.port=30098
+-Dcom.ibm.cics.jvmserver.wlp.server.https.port=6303
 #
 # If your Web application serves static resources (e.g. .jpg, .gif, 
 # .ico, .bmp, .css, etc) - using this property will ensure requests   
@@ -162,10 +162,10 @@ WLP_INSTALL_DIR=&USSHOME;/wlp
 #JVMTRACE=JOBLOG
 #
 #output liberty's message log to stdout
--Dcom.ibm.ws.logging.console.log.level=INFO
-STDOUT=//DD:STDOUT
-STDERR=//DD:STDERR
-JVMTRACE=//DD:STDTRC
+#-Dcom.ibm.ws.logging.console.log.level=INFO
+#STDOUT=//DD:STDOUT
+#STDERR=//DD:STDERR
+#JVMTRACE=//DD:STDTRC
 #
 # If you direct your output to the job log, be aware that output per 
 # JVMSERVER is no longer in a unique location. However, output can be
