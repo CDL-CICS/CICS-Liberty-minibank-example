@@ -1,15 +1,10 @@
 package com.ibm.cics.minibank.action;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.HashMap;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
 import javax.transaction.NotSupportedException;
@@ -17,9 +12,7 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
-import com.ibm.cics.minibank.util.WORDBUtil;
 import com.ibm.cics.minibank.common.util.IConstants;
-import com.ibm.cics.minibank.util.WORPropertiesUtil;
 import com.ibm.cics.minibank.entity.User;
 import com.ibm.cics.minibank.util.TransUtil;
 import com.opensymphony.xwork2.ActionSupport;
@@ -44,7 +37,7 @@ public class UserManagementAction extends ActionSupport {
 		
 		InitialContext ctx = null;
 		UserTransaction tran = null;
-		Connection con = null;
+		//Connection con = null;
 		try {
 			ctx = new InitialContext();
 			tran = 
@@ -67,7 +60,7 @@ public class UserManagementAction extends ActionSupport {
 
 
 			//open connection to DB2
-			DataSource ds;
+			/*DataSource ds;
 			try {
 				ds = (DataSource)ctx.lookup("jdbc/CICSType4DataSource");
 				con=ds.getConnection();
@@ -78,7 +71,7 @@ public class UserManagementAction extends ActionSupport {
 			}  catch (SQLException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
-			} 
+			}*/ 
 			
 			//transaction begin
 			try {
@@ -92,7 +85,7 @@ public class UserManagementAction extends ActionSupport {
 			}
 			
 			// write the transaction history record
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String txTime = formatter.format(new Date());
 			// construct the SQL command
 			String sqlCmd = "INSERT INTO CTUSERS.REQHISTORY(REQUEST,TRANSTIME) VALUES("
@@ -107,7 +100,7 @@ public class UserManagementAction extends ActionSupport {
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}		
+			}*/	
 			
 			// Put the create user transaction data into HashMap to construct channel/container later
 			HashMap<String, String> containerData = new HashMap<String, String>();
@@ -124,16 +117,16 @@ public class UserManagementAction extends ActionSupport {
 			System.out.println("userid:"+user.getCustomerID());
 			//simulate a rollback when userid is "rollback"
 			
-			try {
+			/*try {
 				stat.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 			
 
 			
-			if (user.getCustomerID().equals("rollback"))
+			/*if (user.getCustomerID().equals("rollback"))
 			{
 				try {
 					System.out.println("before rollback");
@@ -151,7 +144,7 @@ public class UserManagementAction extends ActionSupport {
 				}
 			}
 			else
-			{
+			{*/
 				try {
 					System.out.println("before commit");
 					tran.commit();
@@ -187,11 +180,11 @@ public class UserManagementAction extends ActionSupport {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			/*}*/
 			
 			//close DB2 connection
 
-			WORDBUtil.getDBUtilInstance().closeDB2Connection();
+			//WORDBUtil.getDBUtilInstance().closeDB2Connection();
 			
 
 		} else {
@@ -226,7 +219,7 @@ public class UserManagementAction extends ActionSupport {
 
 
 		//open connection to DB2
-		WORDBUtil.getDBUtilInstance().initDB2Connection(4); // get type 4 db2 connection
+		//WORDBUtil.getDBUtilInstance().initDB2Connection(4); // get type 4 db2 connection
 		
 		try {
 			tran.begin();
@@ -239,7 +232,7 @@ public class UserManagementAction extends ActionSupport {
 		}
 		
 		// write the transaction history record
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String txTime = formatter.format(new Date());
 		
 		// construct the SQL command
@@ -248,7 +241,7 @@ public class UserManagementAction extends ActionSupport {
 				+ "'" + txTime + "'"
 				+ ")";
 		// update the database table
-		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);*/
 		
 		// invokde the delegator method in the TransUtil object
 		user = TransUtil.getTranUtil().queryUser(containerData);
@@ -277,7 +270,7 @@ public class UserManagementAction extends ActionSupport {
 		}
 		
 		//close DB2 connection
-		WORDBUtil.getDBUtilInstance().closeDB2Connection();
+		//WORDBUtil.getDBUtilInstance().closeDB2Connection();
 		
 		return SUCCESS;
 	}

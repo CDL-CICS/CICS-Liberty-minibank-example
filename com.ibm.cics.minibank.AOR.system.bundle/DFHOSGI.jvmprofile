@@ -37,7 +37,7 @@
 #
 # JAVA_HOME specifies the location of the Java directory.
 #
-JAVA_HOME=/java/J7.0_64
+JAVA_HOME=/usr/lpp/java/J7.0_64
 #
 # Set the current working directory. If this environment variable is
 # set, a change to the specified directory is issued before the JVM
@@ -47,7 +47,7 @@ JAVA_HOME=/java/J7.0_64
 # left unchanged and the STDIN, STDOUT and STDERR streams are allocated
 # to the /tmp directory.
 #
-WORK_DIR=/u/cntest7/liberty/workdir
+WORK_DIR=/u/trinity/liberty/workdir
 #
 # Specify any directories that contain DLLs required at run time. For
 # example, to use the IBM DB2 Driver for JDBC and SQLJ, add the
@@ -55,7 +55,7 @@ WORK_DIR=/u/cntest7/liberty/workdir
 # See the "Application Programming Guide and Reference for Java" relevant
 # to the level of DB2 being used.
 #
-LIBPATH_SUFFIX=/usr/lpp/db2v10/jdbc/lib/
+LIBPATH_SUFFIX=/usr/lpp/db2/db2a10/jdbc/lib/
 #
 #**********************************************************************
 #
@@ -67,8 +67,8 @@ LIBPATH_SUFFIX=/usr/lpp/db2v10/jdbc/lib/
 # when the JVM is initialized.
 # The list of bundles must be comma separated. The continuation
 # character is '\'.
-OSGI_BUNDLES=/usr/lpp/db2v10/jdbc/classes/db2jcc4.jar,\           
-             /usr/lpp/db2v10/jdbc/classes/db2jcc_license_cisuz.jar
+OSGI_BUNDLES=/usr/lpp/db2/db2a10/jdbc/classes/db2jcc.jar,\
+             /usr/lpp/db2/db2a10/jdbc/classes/db2jcc_license_cisuz.jar
 #OSGI_BUNDLES=/u/example/pathToBundleDirectory/B1.jar,\
 #             /u/example/pathToBundleDirectory/B2.jar
 #
@@ -91,10 +91,6 @@ OSGI_FRAMEWORK_TIMEOUT=60
 # names using the STDOUT, STDERR, STDIN, and JVMTRACE environment
 # variables.
 #
-#jvm's stdout to JES
-STDOUT=//DD:STDOUT
-STDERR=//DD:STDERR
-JVMTRACE=//DD:STDTRC
 # The default file name for JVMTRACE is dfhjvmtrc.
 # To send the output to somewhere other than a file, specify a user
 # output redirection class. CICS provides a sample that demonstrates
