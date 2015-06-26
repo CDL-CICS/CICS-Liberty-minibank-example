@@ -121,11 +121,6 @@ public class TransManagementAction extends ActionSupport {
 		String message = null;
 		boolean inputCorrect = true;
 		
-		InitialContext ctx = null;
-		
-		//UserTransaction tran = startTransaction(ctx);
-		writeHistoryRecord(ctx);
-
 		try {
 			Double.parseDouble(amount);
 			inputCorrect = true;
@@ -169,20 +164,6 @@ public class TransManagementAction extends ActionSupport {
 			this.addActionError(message);
 		}
 		
-		//endTransaction(tran);
-		
-
-		//without JTA, we have to commit explict
-		try {
-			WORDBUtil.getDBUtilInstance().commitOrRollback(true);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} //true means commit
-		
-		//close DB2 connection
-		WORDBUtil.getDBUtilInstance().closeDB2Connection();
-		
 		return SUCCESS;
 	}
 
@@ -210,24 +191,6 @@ public class TransManagementAction extends ActionSupport {
 		this.amount = amount;
 	}
 	
-	private void writeHistoryRecord(InitialContext ctx)
-	{
-		
-		//open connection to DB2
-		WORDBUtil.getDBUtilInstance().initDB2Connection(2); // get type 2 connection
-		
-		// write the transaction history record
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String txTime = formatter.format(new Date());
-		// construct the SQL command
-		String sqlCmd = "INSERT INTO CTUSERS.REQHISTORY(REQUEST,TRANSTIME) VALUES("
-				+ "'transfer from " + sourceAcct + " to " + targetAcct +"', "
-				+ "'" + txTime + "'"
-				+ ")";
-		// update the database table
-		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
-		
-	}
 	
 	private UserTransaction startTransaction(InitialContext ctx)
 	{
