@@ -293,8 +293,8 @@ public class TransUtil {
 				byte[] data = commarea.createCommarea();
 				// link to the program on AOR, 
 				// the return data is put in the commarea buffer
-				bkTran.setSyncOnReturn(false); //change to fales, not syncpoint when return.
-				//bkTran.setSyncOnReturn(true); //change to fales, not syncpoint when return.
+				//bkTran.setSyncOnReturn(false); //change to fales, not syncpoint when return.
+				bkTran.setSyncOnReturn(true); //change to true, syncpoint when return.
 				bkTran.link(data);
 				
 			} catch (InvalidRequestException e) {

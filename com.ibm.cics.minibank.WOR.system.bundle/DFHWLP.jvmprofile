@@ -46,7 +46,7 @@ JAVA_HOME=/usr/lpp/java/J7.0_64
 # left unchanged and the STDIN, STDOUT and STDERR streams are allocated
 # to the /tmp directory.
 #
-WORK_DIR=/u/cntest7/liberty/workdir
+WORK_DIR=/u/trinity/liberty/workdir
 #
 # Specify any directories that contain DLLs required at run time. For
 # example, to use the IBM DB2 Driver for JDBC and SQLJ, add the
@@ -54,7 +54,7 @@ WORK_DIR=/u/cntest7/liberty/workdir
 # See the "Application Programming Guide and Reference for Java"
 # relevant to the level of DB2 being used.
 #
-LIBPATH_SUFFIX=/usr/lpp/db210/jdbc/lib
+LIBPATH_SUFFIX=/usr/lpp/db2/db2a10/jdbc/lib/
 #
 #**********************************************************************
 #
@@ -142,7 +142,7 @@ WLP_OUTPUT_DIR=./&APPLID;/&JVMSERVER;/wlp/usr/outputs
 # NOTE: The server will only be updated with the value of this property
 #       when com.ibm.cics.jvmserver.wlp.autoconfigure=true
 #
--Dcom.ibm.cics.jvmserver.wlp.server.host=winmvs2d.hursley.ibm.com
+#-Dcom.ibm.cics.jvmserver.wlp.server.host=*
 #
 # The com.ibm.cics.jvmserver.wlp.server.http.port Java property is used by CICS
 # to configure the port used for HTTP requests to the web server.
@@ -155,7 +155,7 @@ WLP_OUTPUT_DIR=./&APPLID;/&JVMSERVER;/wlp/usr/outputs
 # NOTE: The server will only be updated with the value of this property
 #       when com.ibm.cics.jvmserver.wlp.autoconfigure=true
 #
--Dcom.ibm.cics.jvmserver.wlp.server.http.port=30095
+-Dcom.ibm.cics.jvmserver.wlp.server.http.port=6352
 #
 # The com.ibm.cics.jvmserver.wlp.server.https.port Java property is used by CICS
 # to configure the port used for HTTPS requests to the web server.
@@ -166,7 +166,7 @@ WLP_OUTPUT_DIR=./&APPLID;/&JVMSERVER;/wlp/usr/outputs
 # NOTE: The server will only be updated with the value of this property
 #       when com.ibm.cics.jvmserver.wlp.autoconfigure=true
 #
--Dcom.ibm.cics.jvmserver.wlp.server.https.port=30096
+-Dcom.ibm.cics.jvmserver.wlp.server.https.port=6353
 #
 # NOTE: If any of the com.ibm.cics.jvmserver.wlp.server.host,
 #       com.ibm.cics.jvmserver.wlp.server.http.port or
@@ -201,7 +201,7 @@ WLP_OUTPUT_DIR=./&APPLID;/&JVMSERVER;/wlp/usr/outputs
                                                                         
 # To use DB2 in a Liberty JVM server provide the following property     
 # pointing at your intallation of DB2.                                  
--Dcom.ibm.cics.jvmserver.wlp.jdbc.driver.location=/usr/lpp/db2v10/jdbc 
+-Dcom.ibm.cics.jvmserver.wlp.jdbc.driver.location=/usr/lpp/db2/db2a10/jdbc
 #
 #
 #               Liberty JVM server -  Service/Tracing
@@ -303,12 +303,6 @@ WLP_OUTPUT_DIR=./&APPLID;/&JVMSERVER;/wlp/usr/outputs
 # such as dfhjvmout, dfhjvmerr and dfhjvmtrc are written.
 #
 #-Dconsole.encoding=ISO-8859-1
-#output liberty's message log to stdout
--Dcom.ibm.ws.logging.console.log.level=INFO
-#jvm's stdout to JES
-STDOUT=//DD:STDOUT
-STDERR=//DD:STDERR
-JVMTRACE=//DD:STDTRC
 #
 #**********************************************************************
 #
