@@ -214,8 +214,8 @@ WLP_INSTALL_DIR=&USSHOME;/wlp
 # -Xms    Initial Java heap size
 # -Xmx    Maximum Java heap size
 # -Xmso   Initial stack size for native threads (JVM default -Xmso256KB)
--Xms512M
--Xmx1024M
+-Xms64M
+-Xmx128M
 -Xmso128K
 #
 # Set the maximum number of helper threads allowed for garbage 

@@ -5,4 +5,5 @@
     </meta_directives>
     <define name="ZOSCONN" type="http://www.ibm.com/xmlns/prod/cics/bundle/PIPELINE" path="ZOSCONN.pipeline"/>
     <define name="ZOSCONN" type="http://www.ibm.com/xmlns/prod/cics/bundle/JVMSERVER" path="ZOSCONN.jvmserver"/>
+    <define name="TRANSFER" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="TRANSFER.program"/>
 </manifest>
