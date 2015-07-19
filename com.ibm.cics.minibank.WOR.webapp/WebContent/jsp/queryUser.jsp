@@ -19,7 +19,7 @@
 
 			<table class="global_table" cellpadding="0" cellspacing="0">
 				<tr>
-					<th class="width135">User ID:</th>
+					<th class="width135">Customer ID:</th>
 					<td><input class="txt" id="user.customerID" name="user.customerID"
 						type="text" value="<s:property value="user.customerID" />" /></td>
 				</tr>

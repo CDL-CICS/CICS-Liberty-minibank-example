@@ -256,8 +256,8 @@ WLP_OUTPUT_DIR=./&APPLID;/&JVMSERVER;/wlp/usr/outputs
 # The following JVM options are a generic set of values.
 # You can perform workload analysis and provide different values that are
 # more suited to your specific workload.
--Xms32M
--Xmx256M
+-Xms16M
+-Xmx128M
 -Xmso128K
 #
 # The -Xgcthreads option sets the maximum number of helper threads

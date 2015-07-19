@@ -126,7 +126,7 @@ JVMTRACE=//DD:STDTRC
 # You can perform workload analysis and provide different values that are
 # more suited to your specific workload.
 -Xms16M
--Xmx256M
+-Xmx128M
 -Xmso128K
 #
 # The -Xgcthreads option sets the maximum number of helper threads
